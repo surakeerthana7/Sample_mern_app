@@ -5,6 +5,11 @@ let mongoose=require('mongoose')
 
 let emproute = require('./routes/emp_route');
 mongoose.connect("")
+.then(()=>console.log("db connected successfully"))
+.catch((err)=>console.log(err))
+
+app.use(express.json()); // used to collect input from UI as JSON data
+
 app.use("/api/emp", emproute);
 
 // Employee Routes

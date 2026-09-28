@@ -1,16 +1,20 @@
 let express=require('express');
-let router=express.Router()
-// Router() used to connect api with comman router
-router.get("/viewemp",(req,res)=>{   
-    res.send("viewemp route called");
+let router=express.Router();
+
+let {users} =require('../models/users');
+router.get("/viewemp", async (req,res)=>{
+    let result=await users.find();
+    res.send(result);
 })
-router.post("/assign-task",(req,res)=>{
-    res.send("assign-task route called");
+//open postman choose  get method
+//localhost:3000/api/hr/viewemp
+router.delete("/deleteemp/:id", async (req,res)=>{
+    let result=await users.findByIdAndDelete(req.params.id);
+    if(result){
+        res.send("record deleted success");
+    }
+  
 })
-router.delete("/deleteemp",(req,res)=>{
-    res.send("deleteemp route called");
-})
-router.patch("/viewtask",(req,res)=>{
-    res.send("uviewtask route called");
-})
+
+
 module.exports=router;
