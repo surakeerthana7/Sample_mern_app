@@ -5,4 +5,4 @@ function About() {
     </div>
   )
 }
-export default Home;
+export default About;
