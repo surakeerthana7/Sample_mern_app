@@ -1,10 +1,11 @@
 let express = require('express');
-
+let cors=require('cors');
 let app = express();
 let mongoose=require('mongoose')
-
 let emproute = require('./routes/emp_route');
-mongoose.connect("")
+
+app.use(cors());
+mongoose.connect("mongodb://localhost:27017/")
 .then(()=>console.log("db connected successfully"))
 .catch((err)=>console.log(err))
 
