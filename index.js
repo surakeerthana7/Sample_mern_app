@@ -5,7 +5,7 @@ let mongoose=require('mongoose')
 let emproute = require('./routes/emp_route');
 
 app.use(cors());
-mongoose.connect("mongodb://localhost:27017/")
+mongoose.connect("mongodb://localhost:27017/hrmanagement")
 .then(()=>console.log("db connected successfully"))
 .catch((err)=>console.log(err))
 
